@@ -1,0 +1,52 @@
+.sidebar {
+    background-color: #212529; /* Warna dasar bg-dark Bootstrap */
+    padding-top: 1rem;
+    height: 100vh; /* Tinggi penuh layar */
+    position: fixed; /* Tetap di tempat saat scroll */
+    top: 0;
+    left: 0;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Memberi sedikit efek bayangan */
+    width: 280px;
+}
+
+.sidebar-header {
+    padding: 0.5rem 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.sidebar-header h3 {
+    color: #ffffff;
+    font-weight: 600;
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+.sidebar .nav-link {
+    color: #adb5bd; /* Warna teks abu-abu muda agar tidak terlalu mencolok */
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    margin-bottom: 0.25rem; /* Jarak antar item */
+    display: flex; /* Menggunakan flexbox untuk alignment ikon */
+    align-items: center;
+    transition: all 0.2s ease-in-out; /* Animasi transisi yang halus */
+    border-left: 3px solid transparent; /* Garis transparan untuk state aktif */
+}
+
+.sidebar .nav-link .feather {
+    margin-right: 12px; /* Jarak antara ikon dan teks */
+    width: 20px;
+    height: 20px;
+}
+
+.sidebar .nav-link:hover {
+    color: #ffffff;
+    background-color: #343a40; /* Warna latar sedikit lebih terang saat hover */
+    border-left: 3px solid #0d6efd; /* Menampilkan garis biru saat hover */
+}
+
+.sidebar .nav-link.active {
+    color: #ffffff;
+    background-color: #0d6efd; /* Latar biru untuk menandakan halaman aktif */
+    font-weight: 600;
+    border-left: 3px solid #0d6efd; /* Garis biru yang solid */
+}
