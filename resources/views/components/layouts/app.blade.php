@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $title ?? 'Page Title' }}</title>
+    <title>{{ $title ?? 'Perpustakaan -Sekolah' }}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    
     <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
     <link rel="stylesheet" href="{{ asset('css/admin-dashboard.css') }}">
 </head>
@@ -29,17 +28,9 @@
                         <a class="dropdown-toggle" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="user-name">Selamat Datang, {{ Auth::user()->name }}</span>
                             <span data-feather="user"></span>
-                            <span data-feather="chevron-down" style="width:20px; height:20px; margin-left:5px;"></span>
+                            
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="profileDropdown">
-                            <a class="dropdown-item" href="#">
-                                <span data-feather="user" class="mr-2"></span> Profile
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item text-danger" href="{{ route('logout') }}">
-                                <span data-feather="log-out" class="mr-2"></span> Logout
-                            </a>
-                        </div>
+
                     </div>
                     @endauth
 

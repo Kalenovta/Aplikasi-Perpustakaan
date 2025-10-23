@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('penulis')->nullable();
             $table->string('penerbit')->nullable();
             $table->string('isbn')->nullable();
+            $table->string('foto')->nullable();
             $table->string('tahun')->nullable();
             $table->string('jumlah')->nullable();
             $table->timestamps();

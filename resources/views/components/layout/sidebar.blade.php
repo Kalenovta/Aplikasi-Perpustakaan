@@ -13,39 +13,45 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ request()->is('#members') ? 'active' : '' }}" href="#members">
+                <a class="nav-link {{ request()->is('member') ? 'active' : '' }}" href="{{ route('member') }}">
                     <span data-feather="users"></span>
                     Manage Members
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ request()->is('#books') ? 'active' : '' }}" href="#books">
+                <a class="nav-link {{ request()->is('#books') ? 'active' : '' }}" href="{{ route('buku')}}">
                     <span data-feather="book"></span>
                     Manage Books
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ request()->is('#loans') ? 'active' : '' }}" href="#loans">
+                <a class="nav-link {{ request()->is('#loans') ? 'active' : '' }}" href="{{ route('pinjam')}}">
                     <span data-feather="file"></span>
                     Manage Loans
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ request()->is('#returns') ? 'active' : '' }}" href="#returns">
+                <a class="nav-link {{ request()->is('#returns') ? 'active' : '' }}" href="{{ route('pengembalian') }}">
                     <span data-feather="check-circle"></span>
                     Manage Returns
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ request()->is('#categories') ? 'active' : '' }}" href="#categories">
+                <a class="nav-link {{ request()->is('#categories') ? 'active' : '' }}" href="{{ route('kategori') }}">
                     <span data-feather="tag"></span>
                     Manage Categories
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ request()->is('#staff') ? 'active' : '' }}" href="#staff">
+                <a class="nav-link {{ request()->is('user') ? 'active' : '' }}" href="{{route('user')}}">
                     <span data-feather="user"></span>
                     Manage Staff
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-danger" href="{{ route('logout') }}">
+                    <span data-feather="log-out" class=""></span>
+                   Logout
                 </a>
             </li>
         </ul>

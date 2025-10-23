@@ -13,9 +13,13 @@ class Buku extends Model
 
     protected $table='bukus';
     protected $primarykey='id';
-    protected $fillable =['id', 'kategori_id', 'judul', 'penulis', 'penerbit', 'isbn', 'tahun', 'jumlah'];
+    protected $fillable =['id', 'kategori_id', 'judul', 'penulis', 'penerbit', 'isbn', 'tahun', 'jumlah','foto'];
 
     public function kategori():BelongsTo{
         return $this->belongsTo(Kategori::class);
+    }
+    public function pinjam()
+    {
+        return $this->hasMany(Pinjam::class);
     }
 }

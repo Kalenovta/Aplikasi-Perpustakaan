@@ -31,6 +31,7 @@
                     <label>Email</label>
                     <input type="email" name="email" value="{{ old('email') }}">
                 </div>
+                
                 <div class="form-group">
                     <label>Password</label>
                     <input type="password" name="password">
@@ -38,6 +39,14 @@
                 <div class="form-group">
                     <label>Konfirmasi Password</label>
                     <input type="password" name="password_confirmation">
+                </div>
+                <div class="form-group">
+                    <label>Role</label>
+                    <select name="role">
+                        <option value="">-- Pilih Role --</option>
+                        <option name="Guru" value="guru">Guru</option>
+                        <option Name="Siswa" value="siswa">Siswa</option>
+                    </select>
                 </div>
                 <button type="submit" class="btn">Submit</button>
                 <div class="regis">

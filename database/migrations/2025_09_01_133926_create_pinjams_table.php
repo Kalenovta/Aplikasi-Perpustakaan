@@ -18,8 +18,8 @@ return new class extends Migration
             $table->foreignIdFor(User::class);
             $table->foreignIdFor(Buku::class);
             $table->date('tgl_pinjam')->nullable();
-            $table->date('tgl_kembali')->nullable();
-            $table->enum('status', ['pinjam', 'kembali'])->nullable();
+            $table->date('tgl_batas')->nullable();
+            $table->enum('status', ['menunggu', 'dipinjam', 'ditolak', 'dikembalikan'])->default('menunggu');
             $table->timestamps();
             $table->softDeletes();
         });

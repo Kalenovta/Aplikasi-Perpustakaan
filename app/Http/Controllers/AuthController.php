@@ -14,15 +14,27 @@ class AuthController extends Controller
 {
      public function proseslogin(Request $request)
         {
-            $credentials = $request->only('name', 'password');
+            $credentials = $request->validate([
+            'name' => ['required'],
+            'password' => ['required'],
+        ]);
 
-            if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
- 
-            return redirect()->intended('welcome');
-        }
+           if (Auth::attempt($credentials)) {
+                $user = Auth::user();
+                if ($user->role === 'admin') {
+                    return redirect()->to('/');
+                } elseif ($user->role === 'guru') {
+                    return redirect()->to('/guru');
+                } else {
+                    return redirect()->to('/Siswa');
+                }
+            }
+        
+        session::flash('status', 'GAGAL');
 
-            return back()->withErrors(['name' => 'Invalid credentials.']);
+        return back()->withErrors([
+            'name' => 'GAGAL',
+        ])->onlyInput('name');
         }
 
     public function showRegister()
@@ -35,6 +47,13 @@ class AuthController extends Controller
         $user = Auth::user();
         return view('welcome', ['user' => $user]);
     }
+
+    public function Siswa()
+    {
+        $user = Auth::user();
+        return view('livewire.siswa-component');
+    }   
+
 
     public function login()
     {
@@ -61,6 +80,7 @@ class AuthController extends Controller
             'name' => 'required|string|max:15|unique:users',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'role' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -71,7 +91,7 @@ class AuthController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'role'=>'admin'
+            'role' => $request->role
             
         ]);
         return redirect('login');
